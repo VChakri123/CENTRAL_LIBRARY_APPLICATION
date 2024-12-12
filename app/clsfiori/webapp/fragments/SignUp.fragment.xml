@@ -1,0 +1,127 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+    xmlns="sap.m"
+>
+    <Dialog
+        id="SignUpDialog"
+        resizable="true"
+        draggable="true"
+        contentWidth="auto"
+        contentHeight="auto"
+        title="Register Details"
+    >
+        <beginButton>
+            <Button
+                id="SignUpButton"
+                text="Submit"
+                press="onPressSubmitYourDetils"
+                class="SubmitBtnClass_HomePage"
+            />
+        </beginButton>
+        <endButton>
+            <Button
+                id="cancelButton"
+                text="Cancel"
+                press="onPressCancelSignUpDetails"
+                class="CancelBtnClass_HomePage"
+            />
+        </endButton>
+        <content>
+            <form:SimpleForm
+                id="SignUpForm"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                labelSpanXL="3"
+                labelSpanL="3"
+                labelSpanM="3"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="4"
+                emptySpanL="4"
+                emptySpanM="4"
+                emptySpanS="0"
+                columnsXL="1"
+                columnsL="1"
+                columnsM="1"
+                singleContainerFullSize="false"
+            >
+                <!-- <Label
+                    id="idlabelID1"
+                    text="ID"
+                    required="true"
+                />
+                <Input
+                    id="userIDInput1"
+                    placeholder="Enter ID"
+                /> -->
+                <Label
+                    id="idlabelName1"
+                    text="Name"
+                    required="true"
+                />
+                <Input
+                    id="idInputName_SignUp"
+                    placeholder="Enter Name"
+                />
+                <Label
+                    id="idlabeluserEmail"
+                    text="Email"
+                    required="true"
+                />
+                <Input
+                    id="idInputUserEmail_SignUp"
+                    placeholder="Enter Email"
+                /> 
+                <Label
+                    id="idlabelphno"
+                    text="Phone Number"
+                    required="true"
+                />
+                <Input
+                    id="idInputUserPhoneNumber_SignUp"
+                    placeholder="Enter Phone Number"
+                />
+                 <Label
+                    id="idlabelusername"
+                    text="User Name"
+                    required="true"
+                />
+                <Input
+                    id="idInputUsername_SignUp"
+                    placeholder="Enter User Name"
+                />
+                <Label
+                    id="idlabeluserpassword"
+                    text="Password"
+                    required="true"
+                />
+                <Input
+                    id="idInputUserapassword_SignUp"
+                    placeholder="Enter Password"
+                    type="Password"
+                />
+                <Label
+                    id="idlabeluserType"
+                    text="UserType"
+                    required="true"
+                />
+                <ComboBox
+                    id="idInputUserOrAdmin_SignUp"
+                    placeholder="Please Selct User Type from Dropdown.."
+                >
+                    <core:Item
+                        id="idInputUser_SignUp"
+                        key="user"
+                        text="user"
+                    />
+                    <core:Item
+                        id="idInputAdmin_SignUp"
+                        key="admin"
+                        text="admin"
+                    />
+                </ComboBox>
+            </form:SimpleForm>
+        </content>
+    </Dialog>
+</core:FragmentDefinition>

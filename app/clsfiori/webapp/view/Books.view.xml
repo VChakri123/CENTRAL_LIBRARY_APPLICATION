@@ -1,0 +1,299 @@
+<mvc:View
+    controllerName="com.app.clsfiori.controller.Books"
+    displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:layout="sap.ui.layout"
+    xmlns:f="sap.f"
+>
+    <f:DynamicPage
+        id="idBooksListPage"
+        headerExpanded="true"
+    >
+        <f:title>
+            <f:DynamicPageTitle id="idBooksListPageTitle">
+                <f:heading>
+                    <Title
+                        id="idBooksPageHeadingTitle"
+                        text="Admin Page:"
+                    />
+                </f:heading>
+
+                <f:expandedContent>
+                    <Label
+                        id="idBooksListPageECL"
+                        text="Here You can see the All the BOOKS..!!"
+                    />
+                </f:expandedContent>
+                <f:snappedContent>
+                    <Label
+                        id="idBooksListPageESL"
+                        text="Here You can see the All the BOOKS..!!"
+                    />
+                </f:snappedContent>
+                <f:snappedTitleOnMobile>
+                    <Title
+                        id="idBooksListPageEST"
+                        text="Here You can see the All the BOOKS..!!"
+                    />
+                </f:snappedTitleOnMobile>
+                <f:navigationActions>
+                    <Button
+                        id="idReturnedBooksBtn"
+                        icon="sap-icon://bell"
+                        tooltip="Notifications"
+                        press="handlePopoverPress"
+                    >
+                        <customData>
+                            <BadgeCustomData
+                                id="idBadge"
+                                class="badge"
+                                value="{/ReturnedBooks/$count}"
+                                visible="true"
+                            />
+                        </customData>
+                    </Button>
+                    <Button
+                        id="idActiveLoansBtn"
+                        text="Actve Loans"
+                        type="Attention"
+                        press="onActiveLoansBtnPress"
+                    />
+                    <!-- <Button
+                        id="idBtnDecline"
+                        icon="sap-icon://decline"
+                        type="Transparent"
+                    /> -->
+                    <Button
+                        id="idBtnBack"
+                        icon="sap-icon://log"
+                        tooltip="Logout"
+                        type="Reject"
+                        press="onBackBtnPress"
+                    />
+                    <!-- <Button
+                        id="idBtnFullScreen"
+                        icon="sap-icon://full-screen"
+                        type="Transparent"
+                    /> -->
+                </f:navigationActions>
+            </f:DynamicPageTitle>
+        </f:title>
+        <f:header>
+            <f:DynamicPageHeader
+                id="idDynamicPageHeader"
+                pinnable="true"
+            >
+                <HBox
+                    id="idFilterHLayout"
+                    alignContent="SpaceAround"
+                    width="100vw"
+                >
+                    <VBox
+                        id="idTitleFilter"
+                        class="sapUiSmallMarginEnd"
+                    >
+                        <Label
+                            id="idTitleFilterLabel"
+                            text="Title:"
+                        />
+                        <MultiInput
+                            id="idTitleFilterValue"
+                            value=""
+                            placeholder="Search Title"
+                        />
+                    </VBox>
+
+                    <VBox
+                        id="idAuthorFilter"
+                        class="sapUiSmallMarginEnd"
+                    >
+                        <Label
+                            id="idAuthorFilterLabel"
+                            text="Author:"
+                        />
+                        <MultiInput
+                            id="idAuthorFilterValue"
+                            value=""
+                            placeholder="Search Author"
+                        />
+                    </VBox>
+                    <VBox
+                        id="idISBNFilter"
+                        class="sapUiSmallMarginEnd"
+                    >
+                        <Label
+                            id="idISBNFilterLabel"
+                            text="ISBN:"
+                        />
+                        <MultiInput
+                            id="idISBNFilterValue"
+                            value=""
+                            placeholder="Search ISBN"
+                        />
+                    </VBox>
+                    <VBox
+                        id="idGoButton"
+                        class="sapUiSmallMarginEnd"
+                    >
+                        <Label
+                            id="idGoButtonLabel"
+                            text=""
+                        />
+                        <Button
+                            id="idGoButtonValue"
+                            icon="sap-icon://search"
+                            type="Neutral"
+                            press="onGoPress"
+                        />
+                    </VBox>
+                    <VBox
+                        id="idClearFilterButton"
+                        class="sapUiSmallMarginEnd"
+                    >
+                        <Label
+                            id="idClearFilterButtonLabel"
+                            text=""
+                        />
+                        <Button
+                            id="idClearFilterButtonValue"
+                            text="Clear Filter"
+                            type="Ghost"
+                            press="onClearFilterPress"
+                        />
+                    </VBox>
+                    <VBox
+                        id="idUsersButton"
+                        class="sapUiSmallMarginEnd"
+                    >
+                        <Label
+                            id="idUsersButtonLabel"
+                            text=""
+                        />
+                        <Button
+                            id="idUsersButtonValue"
+                            text="Users"
+                            type="Reject"
+                            press="onUsersPress"
+                        />
+                    </VBox>
+                    <ToolbarSpacer id="idToolBarSpacer" />
+                </HBox>
+            </f:DynamicPageHeader>
+        </f:header>
+        <f:content>
+            <Table
+                id="idBooksTable123"
+                alternateRowColors="true"
+                items="{/Books}"
+                selectionChange="onSelectBook"
+                mode="MultiSelect"
+            >
+                <headerToolbar>
+                    <OverflowToolbar id="idBooksTableHeader">
+                        <Title
+                            id="idTableHeaderTitle"
+                            text="Books"
+                        />
+                        <ToolbarSpacer id="idTableHeaderSpacer" />
+                        <Button
+                            id="idIssueBooksButton"
+                            text="Issueing Books"
+                            type="Accept"
+                            tooltip="IssueBook"
+                            press="onIssueBooksBtnPress"
+                        />
+                        <Button
+                            id="idBtnCreate"
+                            icon="sap-icon://add"
+                            tooltip="Add a Book"
+                            press="onCreateBtnPress"
+                        />
+                        <Button
+                            id="idBtnEdit"
+                            icon="sap-icon://edit"
+                            tooltip="Edit Books"
+                            type="Neutral"
+                            press="onEditBooksBtnPress"
+                        />
+                        <Button
+                            id="idBtnDelete"
+                            press="onCheckDelete"
+                            icon="sap-icon://delete"
+                            tooltip="Delete Book"
+                            type="Transparent"
+                        />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column id="idTitleCol">
+                        <Title
+                            id="idTitleColTitle"
+                            text="Title"
+                        />
+                    </Column>
+                    <Column id="idAuthorCol">
+                        <Title
+                            id="idAuthorColTitle"
+                            text="Author"
+                        />
+                    </Column>
+                    <Column id="idISBNCol">
+                        <Title
+                            id="idISBNColTitle"
+                            text="ISBN"
+                        />
+                    </Column>
+                    <Column id="idLanguageCol">
+                        <Title
+                            id="idLanguageColTitle"
+                            text="Language"
+                        />
+                    </Column>
+                    <Column id="idQuantityCol">
+                        <Title
+                            id="idQuantityColTitle"
+                            text="Quantity"
+                        />
+                    </Column>
+                    <Column id="idAvailabilityCol">
+                        <Title
+                            id="idAvailabilityColTitle"
+                            text="Availability"
+                        />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem id="idBooksTableColListItem">
+                        <cells>
+                            <Text
+                                id="idTitleColValue"
+                                text="{Title}"
+                            />
+                            <Text
+                                id="idAuthorColValue"
+                                text="{Author}"
+                            />
+                            <Text
+                                id="idISBNNumberColValue"
+                                text="{ISBN}"
+                            />
+                            <Text
+                                id="idLanguageColValue"
+                                text="{Language}"
+                            />
+                            <Text
+                                id="idQuantityColValue"
+                                text="{Quantity}"
+                            />
+                            <Text
+                                id="idAvailabilityColValue"
+                                text="{Availability}"
+                            />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </f:content>
+    </f:DynamicPage>
+</mvc:View>

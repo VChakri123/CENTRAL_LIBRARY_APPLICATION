@@ -1,0 +1,36 @@
+<mvc:View
+    controllerName="com.app.clsfiori.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+>
+    <App id="idApp">
+        <Page
+            id="_IDGenPage1"
+            class="page"
+        >
+            <headerContent>
+                <Title
+                    id="_IDGenTitle1"
+                    class="titleID"
+                    text="Artihcus Central Library"
+                />
+                <ToolbarSpacer id="idToolBarSpacerHome" />
+                <Button
+                    id="idBtnAdminLogin"
+                    text="Login"
+                    type="Emphasized"
+                    press="onLoginDialogPress"
+                    class="Button-Spacing"
+                />
+                <Button
+                    id="idBtnSignUp"
+                    text="SignUp"
+                    icon="sap-icon://add-employee"
+                    tooltip="Add New User"
+                    type="Emphasized"
+                    press="onSignUpUserPress"
+                />
+            </headerContent>
+        </Page>
+    </App>
+</mvc:View>

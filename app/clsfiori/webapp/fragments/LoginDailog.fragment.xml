@@ -1,0 +1,75 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+    xmlns="sap.m"
+>
+    <Dialog
+        id="dialog1"
+        resizable="true"
+        draggable="true"
+        contentWidth="auto"
+        contentHeight="auto"
+        title="Login"
+    >
+        <beginButton>
+            <Button
+                id="idLoginButton"
+                text="Login"
+                press="onLoginPress"
+                type="Success"
+            />
+        </beginButton>
+        <endButton>
+            <Button
+                id="idCancelButton"
+                text="Cancel"
+                press="onCloseLoginPress"
+                type="Negative"
+            />
+        </endButton>
+
+        <content>
+            <form:SimpleForm
+                id="idLoginDetailsForm"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                labelSpanXL="3"
+                labelSpanL="3"
+                labelSpanM="3"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="4"
+                emptySpanL="4"
+                emptySpanM="4"
+                emptySpanS="0"
+                columnsXL="1"
+                columnsL="1"
+                columnsM="1"
+                singleContainerFullSize="false"
+            >
+                <Label
+                    id="idUsernameLabel"
+                    text="Username"
+                    required="true"
+                />
+                <Input
+                    placeholder="Enter Username"
+                    id="idUsernameInput"
+                    value=""
+                />
+                <Label
+                    id="idPassword"
+                    text="Password"
+                    required="true"
+                />
+                <Input
+                    placeholder="Enter Password"
+                    id="idPasswordInput"
+                    value=""
+                    type="Password"
+                    valueStateText="Pls Enter your password"
+                />
+            </form:SimpleForm>
+        </content>
+    </Dialog>
+</core:FragmentDefinition>

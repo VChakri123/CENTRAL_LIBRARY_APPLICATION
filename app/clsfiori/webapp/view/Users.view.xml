@@ -1,0 +1,165 @@
+<mvc:View
+    xmlns:layout="sap.ui.layout"
+    xmlns:f="sap.f"
+    controllerName="com.app.clsfiori.controller.Users"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"  
+    xmlns="sap.m"
+>
+    <f:DynamicPage
+        id="idUserListPage"
+        headerExpanded="true"
+    >
+        <f:title>
+            <f:DynamicPageTitle id="idUserListPageTitle">
+                <f:heading>
+                    <Title
+                        id="idUsersPageHeadingTitle"
+                        text="{i18n>title}"
+                    />
+                </f:heading>
+
+                <f:expandedContent>
+                    <Label
+                        id="idUsersListPageECL"
+                        text="Here You can see the All USERS..!!"
+                    />
+                </f:expandedContent>
+                <f:snappedContent>
+                    <Label
+                        id="idUsersListPageESL"
+                        text="Here You can see the All the USERS..!!"
+                    />
+                </f:snappedContent>
+                <f:snappedTitleOnMobile>
+                    <Title
+                        id="idUsersListPageEST"
+                        text="Here You can see the All the USERS..!!"
+                    />
+                </f:snappedTitleOnMobile>
+                <f:navigationActions>
+                    <!-- <Button
+                        id="idBtnFullScreen"
+                        icon="sap-icon://full-screen"
+                        type="Transparent"
+                    /> -->
+                    <Button
+                        id="idBackBtnUsers"
+                        icon="sap-icon://undo"
+                        type="Transparent"
+                        press="onBackBtnPress"
+                    />
+                    <!-- <Button
+                        id="idBtnDecline"
+                        icon="sap-icon://decline"
+                        type="Transparent"
+                    /> -->
+                </f:navigationActions>
+            </f:DynamicPageTitle>
+        </f:title>
+        <f:header>
+            <f:DynamicPageHeader
+                id="idDynamicPageHeaderUsers"
+                pinnable="true"
+            >
+                <HBox
+                    id="idUsersHLayout"
+                    alignContent="SpaceAround"
+                    width="100vw"
+                >
+                </HBox>
+            </f:DynamicPageHeader>
+        </f:header>
+        <f:content>
+            <Table
+                id="idUsersTable"
+                mode="SingleSelectMaster"
+                alternateRowColors="true"
+                items="{/users}"
+                selectionChange="onSelectuser"
+            >
+                <headerToolbar>
+                    <OverflowToolbar id="idUsersTableHeader">
+                        <Title
+                            id="idTableHeaderTitleUsers"
+                            text="USERS:"
+                        />
+                        <ToolbarSpacer id="idTableHeaderSpacerUsers" />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column id="idNameCol">
+                        <Title
+                            id="idNameColTitle"
+                            text="Name"
+                        />
+                    </Column>
+                    <Column id="idEmailCol">
+                        <Title
+                            id="idEmailColTitle"
+                            text="Email"
+                        />
+                    </Column>
+                    <Column id="idPhoneNumberCol">
+                        <Title
+                            id="idPhoneNumberColTitle"
+                            text="PhoneNumber"
+                        />
+                    </Column>
+                    <Column id="idUserNameCol">
+                        <Title
+                            id="idUserNameColTitle"
+                            text="Username"
+                        />
+                    </Column>
+                    <Column id="idPasswordCol">
+                        <Title
+                            id="idPasswordColTitle"
+                            text="Password"
+                        />
+                    </Column>
+                    <Column id="idUserTypeCol">
+                        <Title
+                            id="idUserTypeColTitle"
+                            text="UserType"
+                        />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem
+                        id="idUsersTableColListItem"
+                    >
+                        <cells>
+                            <Text
+                                id="idNameColValueUsers"
+                                text="{Name}"
+                            />
+                            <Text
+                                id="idEmailColValueUsers"
+                                text="{Email}"
+                            />
+                            <Text
+                                id="idPhoneNumberColValueUsers"
+                                text="{PhoneNumber}"
+                            />
+                            <Text
+                                id="idUserNameColValueUsers"
+                                text="{Username}"
+                            />
+                            <Text
+                                id="idPasswordColValueUsers"
+                                text="{Password}"
+                            />
+                            <Text
+                                id="idUserTypeColValueUsers"
+                                text="{userType}"
+                            />
+                            
+                            
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </f:content>
+    </f:DynamicPage>
+</mvc:View>
