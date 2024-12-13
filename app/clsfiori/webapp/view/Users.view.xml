@@ -31,12 +31,12 @@
                         text="Here You can see the All the USERS..!!"
                     />
                 </f:snappedContent>
-                <f:snappedTitleOnMobile>
+                <!-- <f:snappedTitleOnMobile>
                     <Title
                         id="idUsersListPageEST"
                         text="Here You can see the All the USERS..!!"
                     />
-                </f:snappedTitleOnMobile>
+                </f:snappedTitleOnMobile> -->
                 <f:navigationActions>
                     <!-- <Button
                         id="idBtnFullScreen"
@@ -140,7 +140,7 @@
                             />
                             <Text
                                 id="idPhoneNumberColValueUsers"
-                                text="{PhoneNumber}"
+                                text="{phonenumber}"
                             />
                             <Text
                                 id="idUserNameColValueUsers"
