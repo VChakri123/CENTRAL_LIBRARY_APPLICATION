@@ -1,0 +1,113 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form"
+>
+    <Dialog
+        id="idActiveLoansTable"
+        resizable="true"
+        draggable="true"
+        contentWidth="85%"
+        contentHeight="85%"
+        title="Active Loans"
+    >
+        <content>
+            <Table
+                id="idActiveLoanstable123"
+                inset="false"
+                items="{/BookLoans}"
+            >
+                <headerToolbar>
+                    <Toolbar id="idToolBar_123">
+                        <Title
+                            id="idTableHeader"
+                            text="Product Table"
+                        />
+                        <ToolbarSpacer id="idSpacer" />
+                        <!-- <Button
+                            id="idAddButton"
+                            text="Add"
+                            press="onAdd"
+                        /> -->
+                        <Button
+                            id="idCloseButton"
+                            text="close"
+                            press="onCloseActiveLoans"
+                        />
+                    </Toolbar>
+                </headerToolbar>
+                <columns>
+                    <Column id="idcol1">
+                        <Text
+                            id="idColUserID"
+                            text="User ID"
+                        />
+                    </Column>
+                    <Column id="idcol2">
+                        <Text
+                            id="idUserName"
+                            text="Name"
+                        />
+                    </Column>
+                    <Column id="idcol3">
+                        <Text
+                            id="idBookName"
+                            text="BookName"
+                        />
+                    </Column>
+                    <Column id="idcol4">
+                        <Text
+                            id="idIssueDate"
+                            text="Issue Date"
+                        />
+                    </Column>
+                    <Column id="idcol5">
+                        <Text
+                            id="idReturnDate"
+                            text="Return Date"
+                        />
+                    </Column>
+                    <Column id="idcol6">
+                        <Text
+                            id="idClearLoansBtn"
+                            text="Clear Loans"
+                        />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem id="idColListItems_123">
+                        <cells>
+                            <Text
+                                id="idUserIdValue"
+                                text="{user_ID}"
+                            />
+                            <Text
+                                id="idNameValue"
+                                text="{user/Name}"
+                            />
+                            <Text
+                                id="idBookNameValue"
+                                text="{book/Title}"
+                            />
+                            <Text
+                                id="idIssueDateValue"
+                                text="{IssueDate}"
+                            />
+                            <Text
+                                id="idReturnDateValue"
+                                text="{ReturnDate}"
+                            />
+                            <Button
+                                id="idClearLoansButton"
+                                icon="sap-icon://delete"
+                                tooltip="Delete Loan"
+                                type="Transparent"
+                                press="onClearLoanPress"
+                            />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Dialog>
+</core:FragmentDefinition>

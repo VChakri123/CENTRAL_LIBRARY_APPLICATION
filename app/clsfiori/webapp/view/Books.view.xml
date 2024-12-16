@@ -55,7 +55,7 @@
                     </Button>
                     <Button
                         id="idActiveLoansBtn"
-                        text="Actve Loans"
+                        text="Active Loans"
                         type="Attention"
                         press="onActiveLoansBtnPress"
                     />
@@ -187,7 +187,7 @@
                 alternateRowColors="true"
                 items="{/Books}"
                 selectionChange="onSelectBook"
-                mode="MultiSelect"
+                mode="SingleSelectLeft"
             >
                 <headerToolbar>
                     <OverflowToolbar id="idBooksTableHeader">
@@ -198,7 +198,7 @@
                         <ToolbarSpacer id="idTableHeaderSpacer" />
                         <Button
                             id="idIssueBooksButton"
-                            text="Issueing Books"
+                            text="Issue Books"
                             type="Accept"
                             tooltip="IssueBook"
                             press="onIssueBooksBtnPress"

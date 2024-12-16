@@ -1,0 +1,107 @@
+<core:FragmentDefinition
+    xmlns:tnt="sap.tnt"
+    xmlns:layout="sap.ui.layout"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:m="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns:ui5="sap.ui.webc.main"
+    height="100%"
+>
+    <m:Dialog
+        id="idIssueTable"
+        resizable="true"
+        draggable="true"
+        contentWidth="85%"
+        contentHeight="85%"
+        title="Issueing Books:"
+    >
+        <m:content>
+            <m:Table
+                id="idIssueBooksTable"
+                mode="MultiSelect"
+                alternateRowColors="true"
+            >
+                <m:headerToolbar>
+                    <m:OverflowToolbar id="idBooksTableHeaderIssueBooks">
+                        <m:Title
+                            id="idTableHeaderIssueBooks"
+                            text="Issue Books:-"
+                        />
+                        <m:ToolbarSpacer id="idTableHeaderSpacerIssueBooks" />
+                        <m:HBox
+                            id="idHboxBtns"
+                            justifyContent="End"
+                        >
+                            <m:Button
+                                id="idAcceptBtnIssueBooks"
+                                icon="sap-icon://accept"
+                                text="Accept"
+                                tooltip="Accept Book"
+                                type="Transparent"
+                                press="onAcceptButtonIssueBookPress"
+                            />
+                            <m:Button
+                                id="idAcceptButton3"
+                                text="Cancel"
+                                press="onCancleIssueBookPress"
+                                type="Transparent"
+                            />
+                        </m:HBox>
+                    </m:OverflowToolbar>
+                </m:headerToolbar>
+                <m:columns>
+                    <m:Column id="idBookNameColIssueBooks">
+                        <m:Title
+                            id="idBookNameColTitleIssueBooks"
+                            text="Book Name:"
+                        />
+                    </m:Column>
+                    <m:Column id="idAuthorColIssueBooks">
+                        <m:Title
+                            id="idAuthorColTitleIssueBooks"
+                            text="Author Name:"
+                        />
+                    </m:Column>
+                    <m:Column id="idIsbnColIssueBooks">
+                        <m:Title
+                            id="idIsbnColTitleIssueBooks"
+                            text="Book ISBN:"
+                        />
+                    </m:Column>
+                    <m:Column id="idUserIdColumn">
+                        <m:Title
+                            id="idUserIdtitle"
+                            text="User ID:"
+                        />
+                    </m:Column>
+                    <m:Column id="idNameColumn">
+                        <m:Title
+                            id="idNametitle"
+                            text="User's Name:"
+                        />
+                    </m:Column>
+                    <m:Column id="idDueDateColIssueBooks">
+                        <m:Title
+                            id="idDueDateColTitleIssueBooks"
+                            text="Reserved Date:"
+                        />
+                    </m:Column>
+                </m:columns>
+                <m:items>
+                    <m:ColumnListItem id="idBooksTableColListItemIssueBooks">
+                        <m:cells>
+                            <m:Text id="idBookNameColValueIssueBooks" />
+                            <m:Text id="idAuthorColValueIssueBooks" />
+                            <m:Text id="idISBNColValueIssueBooks" />
+                            <m:Text id="idUserIDIssueBooks" />
+                            <m:Text id="idNameIssueBooks" />
+                            <m:Text id="idDueDateValueIssueBooks" />
+                        </m:cells>
+                    </m:ColumnListItem>
+                </m:items>
+            </m:Table>
+        </m:content>
+    </m:Dialog>
+</core:FragmentDefinition>

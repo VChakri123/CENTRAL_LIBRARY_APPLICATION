@@ -1,0 +1,100 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+    xmlns="sap.m"
+>
+    <Dialog
+        id="dialog1234"
+        resizable="false"
+        draggable="true"
+        contentWidth="30%"
+        title="Update Books:"
+    >
+        <beginButton>
+            <Button
+                id="idEditingbooks"
+                text="Update"
+                press="onUpdateBooksPress_EditBook"
+                type="Success"
+            />
+        </beginButton>
+        <endButton>
+            <Button
+                id="idCancleUpdateButton"
+                text="Cancel"
+                press="onCloseUpdateBooksDialog"
+                type="Negative"
+            />
+        </endButton>
+
+        <content>
+            <form:SimpleForm
+                id="idUpdateBooksDetailsForm"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                labelSpanXL="3"
+                labelSpanL="3"
+                labelSpanM="3"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="4"
+                emptySpanL="4"
+                emptySpanM="4"
+                emptySpanS="0"
+                columnsXL="1"
+                columnsL="1"
+                columnsM="1"
+                singleContainerFullSize="false"
+            >
+                <Label
+                    id="idUpdateTitle"
+                    text="Title"
+                />
+                <Input
+                    id="idUpdateTitleInput"
+                    value="{oNewBookModel>/Title}"
+                    editable="true"
+                />
+
+                <Label
+                    id="idLableUpdateAuthor"
+                    text="Author"
+                />
+                <Input
+                    id="idUpdateAuthorInput"
+                    value="{oNewBookModel>/Author}"
+                    editable="false"
+                />
+
+                <Label
+                    id="idLableUpdateISBN"
+                    text="ISBN"
+                />
+                <Input
+                    id="idUpdateIsbnInput"
+                    value="{oNewBookModel>/ISBN}"
+                    editable="false"
+                />
+
+                <Label
+                    id="idLableUpdatelanguage"
+                    text="Language"
+                />
+                <Input
+                    id="idUpdateLanguageInput"
+                    value="{oNewBookModel>/Language}"
+                    editable="false"
+                />
+
+                <Label
+                    id="idLableUpdateQuantity"
+                    text="Quantity"
+                />
+                <Input
+                    id="idUpdateQuantityInput"
+                    value="{oNewBookModel>/Quantity}"
+                />
+            </form:SimpleForm>
+        </content>
+    </Dialog>
+</core:FragmentDefinition>
