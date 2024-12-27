@@ -68,6 +68,7 @@
                     value=""
                     type="Password"
                     valueStateText="Pls Enter your password"
+                    class="ph"
                 />
             </form:SimpleForm>
         </content>

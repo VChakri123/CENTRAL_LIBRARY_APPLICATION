@@ -136,7 +136,7 @@
         },
         {
           "name": "RouteSingleUserPage",
-          "pattern": "SingleUserPage",
+          "pattern": "users/{ID}",
           "target": [
            "TargetSingleUserPage"
           ]

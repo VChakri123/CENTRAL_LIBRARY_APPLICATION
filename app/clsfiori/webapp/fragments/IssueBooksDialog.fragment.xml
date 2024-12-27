@@ -22,6 +22,7 @@
                 id="idIssueBooksTable"
                 mode="MultiSelect"
                 alternateRowColors="true"
+                items="{/IssueingBooks}"
             >
                 <m:headerToolbar>
                     <m:OverflowToolbar id="idBooksTableHeaderIssueBooks">
@@ -34,6 +35,12 @@
                             id="idHboxBtns"
                             justifyContent="End"
                         >
+                            <m:Button
+                                id="idBtnIssueBooksRefresh"
+                                tooltip="refresh"
+                                icon="sap-icon://synchronize"
+                                press="onIssueBooksRefreshBtn"
+                            />
                             <m:Button
                                 id="idAcceptBtnIssueBooks"
                                 icon="sap-icon://accept"
@@ -92,12 +99,30 @@
                 <m:items>
                     <m:ColumnListItem id="idBooksTableColListItemIssueBooks">
                         <m:cells>
-                            <m:Text id="idBookNameColValueIssueBooks" />
-                            <m:Text id="idAuthorColValueIssueBooks" />
-                            <m:Text id="idISBNColValueIssueBooks" />
-                            <m:Text id="idUserIDIssueBooks" />
-                            <m:Text id="idNameIssueBooks" />
-                            <m:Text id="idDueDateValueIssueBooks" />
+                            <m:Text
+                                id="idBookNameColValueIssueBooks"
+                                text="{Book12/Title}"
+                            />
+                            <m:Text
+                                id="idAuthorColValueIssueBooks"
+                                text="{Book12/Author}"
+                            />
+                            <m:Text
+                                id="idISBNColValueIssueBooks"
+                                text="{Book12/ISBN}"
+                            />
+                            <m:Text
+                                id="idUserIDIssueBooks"
+                                text="{user12/ID}"
+                            />
+                            <m:Text
+                                id="idNameIssueBooks"
+                                text="{user12/Name}"
+                            />
+                            <m:Text
+                                id="idDueDateValueIssueBooks"
+                                text="{reservedDate}"
+                            />
                         </m:cells>
                     </m:ColumnListItem>
                 </m:items>

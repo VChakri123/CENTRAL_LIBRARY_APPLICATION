@@ -53,18 +53,22 @@ sap.ui.define([
                         }
                         this.onCloseLoginDialog();
                     } else {
-                        MessageToast.show("Invalid username or password.");
+                        MessageToast.show("Please Enter valid username or password.");
                     }
                 }.bind(this),
                 error: function (oError) {
                     MessageToast.show("Error during login process.");
                 }
             });
+             // Clear input fields
+             this.byId("idUsernameInput").setValue("").setValueState("None");
+             this.byId("idPasswordInput").setValue("").setValueState("None");
         },
+        
         onCloseLoginPress: function () {
             this.onPressLoginDialog.close();
         },
-
+      
         //SIGNUP BUTTON
         onSignUpUserPress: async function () {
             if (!this.onSubmitYourDetailsDailog) {
@@ -99,14 +103,14 @@ sap.ui.define([
             } else {
                 this.byId("idInputName_SignUp").setValueState("None");
             }
-         
+           
             if (oUserPassword.length < 4) {
                 this.byId("idInputUserapassword_SignUp").setValueState("Error").setValueStateText("Password must contain at least 4 characters.");
                 bValid = false;
             } else {
                 this.byId("idInputUserapassword_SignUp").setValueState("None");
             }
-         
+          
             if (!/^\d{10}$/.test(oUserPhoneNumber)) {
                 this.byId("idInputUserPhoneNumber_SignUp").setValueState("Error").setValueStateText("Phone number must be a 10-digit number.");
                 bValid = false;
@@ -153,7 +157,7 @@ sap.ui.define([
                     Password: oUserPassword,
                     userType: oUserType,
                 };
-         
+          
                 // Create data
                 await this.createData(oModel, oPayload, "/users");
          
@@ -173,7 +177,7 @@ sap.ui.define([
                 console.error("Error: ", error);
             }
         },
-         
+        
         checkIfExists: async function (oModel, sEntitySet, aFilters) {
             return new Promise((resolve, reject) => {
                 oModel.read(sEntitySet, {
@@ -183,7 +187,7 @@ sap.ui.define([
                 });
             });
         },
-
+          
         //SIGNUP FRAGMENT CANCEL BUTTON
         onPressCancelSignUpDetails: function () {
             this.onSubmitYourDetailsDailog.close();

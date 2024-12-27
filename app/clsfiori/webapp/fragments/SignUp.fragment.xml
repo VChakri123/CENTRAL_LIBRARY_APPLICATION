@@ -101,7 +101,7 @@
                     placeholder="Enter Password"
                     type="Password"
                 />
-                <Label
+                <!-- <Label
                     id="idlabeluserType"
                     text="UserType"
                     required="true"
@@ -120,7 +120,7 @@
                         key="admin"
                         text="admin"
                     />
-                </ComboBox>
+                </ComboBox> -->
             </form:SimpleForm>
         </content>
     </Dialog>

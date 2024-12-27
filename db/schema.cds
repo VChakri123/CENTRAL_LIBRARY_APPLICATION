@@ -55,7 +55,6 @@ entity IssueingBooks : cuid {
 
 }
 
-
 entity ReturnedBooks : cuid {
 
   ReturnDate : Date;

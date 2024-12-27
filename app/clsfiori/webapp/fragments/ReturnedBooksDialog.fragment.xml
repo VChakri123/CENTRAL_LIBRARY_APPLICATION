@@ -1,0 +1,51 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:layout="sap.ui.layout"
+    xmlns:form="sap.ui.layout.form"
+>
+    <Popover
+        id="myPopover"
+        title="Returned Books:-"
+        placement="Left"
+    >
+        <VBox
+            id="idVBoxPop"
+            class="sapUiResponsiveMargin"
+            items="{path: '/ReturnedBooks', parameters:{ $count : true}}"
+        >
+            <FlexBox
+                id="idFleBox1"
+                fitContainer="true"
+                alignItems="Center"
+            >
+                <Avatar
+                    id="idAvatarPop"
+                    displaySize="Custom"
+                    class="sapUiTinyMarginEnd"
+                />
+                <VBox id="idVBoxReturnPop">
+                    <Title
+                        id="idTitle1"
+                        text="Name: {user14/Name}"
+                    />
+                    <Text
+                        id="idTextBook"
+                        text="Book details:\nTitle: {book14/Title}\nAuthor: {book14/Author}\nISBN: {book14/ISBN}"
+                    />
+                    <Text
+                        id="idTextReturn"
+                        text="Return Date: {ReturnDate}"
+                    />
+                    <Text
+                        id="idTextDescri"
+                        text="The '{book14/Title}' is returned successfully."
+                    />
+                </VBox>
+            </FlexBox>
+        </VBox>
+        <footer>
+            <OverflowToolbar id="idOverflow" />
+        </footer>
+    </Popover>
+</core:FragmentDefinition>

@@ -24,11 +24,12 @@
                             text="Product Table"
                         />
                         <ToolbarSpacer id="idSpacer" />
-                        <!-- <Button
-                            id="idAddButton"
-                            text="Add"
-                            press="onAdd"
-                        /> -->
+                        <Button
+                            id="idBtnActiveLoansFragRefresh"
+                            tooltip="refresh"
+                            icon="sap-icon://synchronize"
+                            press="onActiveLoansFragRefreshBtn"
+                        />
                         <Button
                             id="idCloseButton"
                             text="close"
@@ -79,7 +80,7 @@
                         <cells>
                             <Text
                                 id="idUserIdValue"
-                                text="{user_ID}"
+                                text="{user/ID}"
                             />
                             <Text
                                 id="idNameValue"

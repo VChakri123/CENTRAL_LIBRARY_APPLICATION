@@ -101,7 +101,11 @@
 
 
 .CustomPopOver {
-    width: 600px;
-    height: 200px;
+    width: 100px;
+    height: auto;
     overflow: auto;
+}
+
+.sapMPopup-CTX .sapMIBar.sapMHeader-CTX{
+        background-color: rgb(128, 196, 233);
 }

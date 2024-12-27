@@ -158,6 +158,12 @@
                                         />
                                         <m:ToolbarSpacer id="idToolBar" />
                                         <m:Button
+                                            id="idBtnReturnBooksRefresh"
+                                            tooltip="refresh"
+                                            icon="sap-icon://synchronize"
+                                            press="onReturnBooksRefreshBtn"
+                                        />
+                                        <m:Button
                                             id="idBtnReturn"
                                             text="Return Book"
                                             tooltip="Return Book"
@@ -240,11 +246,11 @@
                                             text="Total Books From the Library:-"
                                         />
                                         <m:ToolbarSpacer id="idTool" />
-                                        <m:Input
+                                         <m:SearchField
                                             id="idInputSearch"
                                             liveChange="onSearchBooksFromTable"
-                                            width="20%"
                                             placeholder="Search Anything..."
+                                            width="20%"
                                         />
                                         <m:Button
                                             id="idReserve"

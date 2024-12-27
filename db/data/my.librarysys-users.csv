@@ -1,7 +1,7 @@
 ID,Name,Email,phonenumber,Username,Password,userType
 1a5fc68d-8c4c-4f17-95c4-fadcfb37c4c5,Chakradhar Reddy,Chakri@gmail.com,9000000001,Chakri,Chakri@123,admin
 2b7df68a-1e3c-4e5f-a6c3-4e6d4a92b8b5,Ramesh,Ramesh@gmail.com,7702953429,Ramu,Ramu@123,member
-123e4567-e89b-12d3-a456-426614174000,John Doe,johndoe@example.com,9876543210,johndoe,password123,member
+123e4567-e89b-12d3-a456-426614174000,navya,navya@example.com,9876543210,navya,navya123,member
 223e4567-e89b-12d3-a456-426614174001,Jane Smith,janesmith@example.com,9182571806,janesmith,password456,member
 323e4567-e89b-12d3-a456-426614174002,Bob Johnson,bobjohnson@example.com,3456789012,bobjohnson,password789,member
 423e4567-e89b-12d3-a456-426614174003,Alice Brown,alicebrown@example.com,4567890123,alicebrown,password012,member

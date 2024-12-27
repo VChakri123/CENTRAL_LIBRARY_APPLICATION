@@ -22,19 +22,19 @@
                 <f:expandedContent>
                     <Label
                         id="idBooksListPageECL"
-                        text="Here You can see the All the BOOKS..!!"
+                        text="Here You can see  All the BOOKS..!!"
                     />
                 </f:expandedContent>
                 <f:snappedContent>
                     <Label
                         id="idBooksListPageESL"
-                        text="Here You can see the All the BOOKS..!!"
+                        text="Here You can see  All the BOOKS..!!"
                     />
                 </f:snappedContent>
                 <f:snappedTitleOnMobile>
                     <Title
                         id="idBooksListPageEST"
-                        text="Here You can see the All the BOOKS..!!"
+                        text="Here You can see  All the BOOKS..!!"
                     />
                 </f:snappedTitleOnMobile>
                 <f:navigationActions>
@@ -100,6 +100,7 @@
                         <MultiInput
                             id="idTitleFilterValue"
                             value=""
+                            liveChange="onLiveSearchBooksTableTitle"
                             placeholder="Search Title"
                         />
                     </VBox>
@@ -196,6 +197,18 @@
                             text="Books"
                         />
                         <ToolbarSpacer id="idTableHeaderSpacer" />
+                         <Button
+                            id="idBtnBooksRefresh"
+                            tooltip="refresh"
+                            icon="sap-icon://synchronize"
+                            press="onBooksRefreshBtn"
+                        />
+                        <SearchField
+                            id="idSearchFieldBooks"
+                            liveChange="onLiveSearchBooksTable"
+                            placeholder="Search Anything..."
+                            width="20%"
+                        />
                         <Button
                             id="idIssueBooksButton"
                             text="Issue Books"
