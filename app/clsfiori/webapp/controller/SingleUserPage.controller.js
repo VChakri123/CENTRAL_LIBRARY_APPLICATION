@@ -22,13 +22,13 @@ sap.ui.define([
       oObjectPage.bindElement(`/users(${ID})`);
     },
 
+
     onReserveBookPress: async function (oEvent) {
       let selectedItems = this.byId("idBooksTable").getSelectedItems();
       if (selectedItems.length !== 1) {
         MessageToast.show(selectedItems.length > 1 ? "Please select only one Book to Reserve..!" : "Please select at least one Book Reserve..!");
         return;
       }
-
       // if (this.byId("idBooksTable").getSelectedItems().length === 0) {
       //   MessageToast.show("Please Select at least one Book Reserve..!");
       //   return;
@@ -37,6 +37,7 @@ sap.ui.define([
       //   MessageToast.show("Please Select only one Book to Reserve..!");
       //   return;
       // }
+
       var oSelectedItem = oEvent.getSource().getParent();
       var oSelectedUser = oSelectedItem.getBindingContext().getObject();
       var oSelectedBook = this.byId("idBooksTable").getSelectedItem().getBindingContext().getObject();
@@ -86,12 +87,31 @@ sap.ui.define([
       // MessageToast.show("Table refreshed successfully!");
     },
 
+
+
     //RETURN REFRESH BORROWED BOOKS
     onReturnBooksRefreshBtn: function () {
       const oView = this.getView();
-      oView.byId("idUserActiveLoanTable").getBinding("items").refresh();
+      const oTable = oView.byId("idUserActiveLoanTable");
+      // Refresh the table binding
+      oTable.getBinding("items").refresh();
+      // Clear table selection
+      const oTableSelectionModel = oTable.getSelectedContexts(); // Check if it's multi-select or single-select
+      if (oTableSelectionModel.length > 0) {
+        oTable.removeSelections(true);
+      }
+      // Show a message toast
       MessageToast.show("User ActiveLoans table refreshed Succesfully!");
     },
+
+    // //RETURN REFRESH BORROWED BOOKS
+    // onReturnBooksRefreshBtn: function () {
+    //   const oView = this.getView();
+    //   oView.byId("idUserActiveLoanTable").getBinding("items").refresh();
+    //   MessageToast.show("User ActiveLoans table refreshed Succesfully!");
+    // },
+
+
     onReturnBookPress: async function () {
       const oView = this.getView();
       const aSelectedItems = oView.byId("idUserActiveLoanTable").getSelectedItems();
@@ -99,48 +119,74 @@ sap.ui.define([
       // Validation: Check if no items are selected
       if (aSelectedItems.length !== 1) {
         sap.m.MessageToast.show(
-          aSelectedItems.length > 1 ? "Please select only one book to return!" : "Please select at least one book to return!");
-        return;
-      }
-
-
-      // Validation: Check if more than one item is selected
-      if (aSelectedItems.length > 1) {
-        sap.m.MessageBox.error("You can return only one book at a time. Please select a single book.");
+          aSelectedItems.length > 1 ? "Please select only one book to return!" : "Please select at least one book to return!"
+        );
         return;
       }
 
       // Proceed with a single selected item
       const oSelectedItem = aSelectedItems[0];
       const oContext = oSelectedItem.getBindingContext().getObject();
-      const userModel = new sap.ui.model.json.JSONModel({
-        user14_ID: oContext.ID,
-        book14_ID: oContext.book.ID,
-        ReturnDate: new Date(),
-      });
-      oView.setModel(userModel, "userModel");
+      const oModel = oView.getModel("ModelV2");
 
-      const oPayload = oView.getModel("userModel").getProperty("/"),
-        oModel = oView.getModel("ModelV2");
+      // Define filters to check if the book is already returned
+      const aFilters = [
+        new sap.ui.model.Filter("user14_ID", sap.ui.model.FilterOperator.EQ, this.id),
+        new sap.ui.model.Filter("book14_ID", sap.ui.model.FilterOperator.EQ, oContext.book.ID),
+      ];
 
-      // Confirmation dialog
-      sap.m.MessageBox.confirm(`Are you sure you want to return the book "${oContext.book.Title}"?`, {
-        actions: [sap.m.MessageBox.Action.OK, sap.m.MessageBox.Action.CANCEL],
-        onClose: async (oAction) => {
-          if (oAction === sap.m.MessageBox.Action.OK) {
-            try {
-              await this.createData(oModel, oPayload, "/ReturnedBooks");
-              sap.m.MessageBox.success(`Book "${oContext.book.Title}" returned successfully.`);
-              this.byId("idUserActiveLoanTable").getBinding("items").refresh();
-            } catch (error) {
-              sap.m.MessageBox.error(`Failed to return book "${oContext.book.Title}".`);
-            }
+      try {
+        // Check if the book has already been returned
+        const aExistingReturns = await new Promise((resolve, reject) => {
+          oModel.read("/ReturnedBooks", {
+            filters: aFilters,
+            success: function (oData) {
+              resolve(oData.results);
+            },
+            error: function (oError) {
+              reject(oError);
+            },
+          });
+        });
+
+        // If the book is already returned, raise an error
+        if (aExistingReturns.length > 0) {
+          sap.m.MessageBox.error(`The book "${oContext.book.Title}" has already been returned.`);
+          return;
+        }
+
+        // Proceed with setting up the payload for return
+        const userModel = new sap.ui.model.json.JSONModel({
+          user14_ID: this.id,
+          book14_ID: oContext.book.ID,
+          ReturnDate: new Date(),
+        });
+        oView.setModel(userModel, "userModel");
+
+        const oPayload = oView.getModel("userModel").getProperty("/");
+
+        // Confirmation dialog
+        sap.m.MessageBox.confirm(
+          `Are you sure you want to return the book "${oContext.book.Title}"?`,
+          {
+            actions: [sap.m.MessageBox.Action.OK, sap.m.MessageBox.Action.CANCEL],
+            onClose: async (oAction) => {
+              if (oAction === sap.m.MessageBox.Action.OK) {
+                try {
+                  await this.createData(oModel, oPayload, "/ReturnedBooks");
+                  sap.m.MessageBox.success(`Book "${oContext.book.Title}" returned successfully.`);
+                  this.byId("idUserActiveLoanTable").getBinding("items").refresh();
+                } catch (error) {
+                  sap.m.MessageBox.error(`Failed to return book "${oContext.book.Title}".`);
+                }
+              }
+            },
           }
-        },
+        );
+      } catch (error) {
+        sap.m.MessageBox.error("An error occurred while checking the book's return status.");
       }
-      );
     },
-
 
     //SEARCH
     onSearchBooksFromTable: function (oEvent) {

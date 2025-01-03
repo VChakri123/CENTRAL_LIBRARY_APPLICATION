@@ -115,6 +115,7 @@
                         />
                         <MultiInput
                             id="idAuthorFilterValue"
+                            liveChange="onLiveSearchBooksTableAuthor"
                             value=""
                             placeholder="Search Author"
                         />
@@ -129,11 +130,12 @@
                         />
                         <MultiInput
                             id="idISBNFilterValue"
+                            liveChange="onLiveSearchBooksTableISBN"
                             value=""
                             placeholder="Search ISBN"
                         />
                     </VBox>
-                    <VBox
+                    <!-- <VBox
                         id="idGoButton"
                         class="sapUiSmallMarginEnd"
                     >
@@ -147,7 +149,7 @@
                             type="Neutral"
                             press="onGoPress"
                         />
-                    </VBox>
+                    </VBox> -->
                     <VBox
                         id="idClearFilterButton"
                         class="sapUiSmallMarginEnd"
@@ -203,12 +205,12 @@
                             icon="sap-icon://synchronize"
                             press="onBooksRefreshBtn"
                         />
-                        <SearchField
+                        <!-- <SearchField
                             id="idSearchFieldBooks"
                             liveChange="onLiveSearchBooksTable"
                             placeholder="Search Anything..."
                             width="20%"
-                        />
+                        /> -->
                         <Button
                             id="idIssueBooksButton"
                             text="Issue Books"

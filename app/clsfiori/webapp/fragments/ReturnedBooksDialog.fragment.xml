@@ -31,7 +31,7 @@
                     />
                     <Text
                         id="idTextBook"
-                        text="Book details:\nTitle: {book14/Title}\nAuthor: {book14/Author}\nISBN: {book14/ISBN}"
+                        text="Book details: Title: {book14/Title}___ Author: {book14/Author}___ISBN: {book14/ISBN}"
                     />
                     <Text
                         id="idTextReturn"
