@@ -46,12 +46,12 @@ sap.ui.define([
                         var userid = oUser.ID;
                         MessageToast.show("Login successful!");
 
-                        if (oUser.userType === "admin") {
+                        if (oUser.userType === "Admin") {
                             this.getOwnerComponent().getRouter().navTo("RouteBooks", { ID: userid });
                         } else if (oUser.userType === "member") {
                             this.getOwnerComponent().getRouter().navTo("RouteSingleUserPage", { ID: userid })
                         }
-                        this.onCloseLoginDialog();
+                        this.onPressLoginDialog.close();
                     } else {
                         MessageToast.show("Please Enter valid username or password.");
                     }
@@ -87,10 +87,10 @@ sap.ui.define([
             var oUserPhoneNumber = this.byId("idInputUserPhoneNumber_SignUp").getValue().trim();
             var oUserName = this.byId("idInputUsername_SignUp").getValue().trim();
             var oUserPassword = this.byId("idInputUserapassword_SignUp").getValue().trim();
-            var oUserType = this.byId("idInputUserOrAdmin_SignUp").getSelectedKey();
+            
          
             // Validation checks
-            if (!oName || !oUserEmail || !oUserPhoneNumber || !oUserName || !oUserPassword || !oUserType) {
+            if (!oName || !oUserEmail || !oUserPhoneNumber || !oUserName || !oUserPassword) {
                 sap.m.MessageBox.error("Please fill out all required fields!");
                 return;
             }
@@ -155,7 +155,7 @@ sap.ui.define([
                     phonenumber: oUserPhoneNumber,
                     Username: oUserName,
                     Password: oUserPassword,
-                    userType: oUserType,
+                    userType: "member",
                 };
           
                 // Create data
@@ -167,7 +167,7 @@ sap.ui.define([
                 this.byId("idInputUserPhoneNumber_SignUp").setValue("").setValueState("None");
                 this.byId("idInputUsername_SignUp").setValue("").setValueState("None");
                 this.byId("idInputUserapassword_SignUp").setValue("").setValueState("None");
-                this.byId("idInputUserOrAdmin_SignUp").setSelectedKey("");
+                
          
                 // Close dialog and show success message or error message
                 this.onSubmitYourDetailsDailog.close();

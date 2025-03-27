@@ -1,11 +1,1 @@
 ID,Title,Author,ISBN,Quantity,Availability,Language,users_ID
-2a5fc68d-8c4c-4f17-95c4-fadcfb37c4c5,The Great Gatsby,F. Scott Fitzgerald,9780743273565,25,15,English,2b7df68a-1e3c-4e5f-a6c3-4e6d4a92b8b5
-3a7df68a-1e3c-4e5f-a6c3-4e6d4a92b8b5,To Kill a Mockingbird,Harper Lee,9780061120084,29,20,English,423e4567-e89b-12d3-a456-426614174003
-4f5e3c2d-6c9e-4d98-b6df-60d7c0f21cb8,1984,George Orwell,9780451524935,37,20,English,123e4567-e89b-12d3-a456-426614174000
-5e7a3f1d-8e7f-4b2e-8d3a-2b9d4e68a6b6,Pride and Prejudice,Jane Austen,9781503290563,44,36,English,423e4567-e89b-12d3-a456-426614174003
-6d4c3f7d-9d4b-4e8f-8a5e-5c9e4d72c7d9,Moby-Dick,Herman Melville,9781503280786,14,0,English,2b7df68a-1e3c-4e5f-a6c3-4e6d4a92b8b5
-7b8e4d2c-6a3e-4f9a-9d3e-4e6d8e72b8a2,War and Peace,Leo Tolstoy,9781853260629,67,45,English,123e4567-e89b-12d3-a456-426614174000
-8f7d3c1e-2d6c-4b5f-8e7a-9b8d7e62d6b5,The Catcher in the Rye,J.D. Salinger,9780316769488,62,50,English,123e4567-e89b-12d3-a456-426614174000
-9d3e8a6c-7c4b-4e9a-8d2e-7b6d8c4f5a9b,The Hobbit,J.R.R. Tolkien,9780547928227,56,47,English,2b7df68a-1e3c-4e5f-a6c3-4e6d4a92b8b5
-10d8e6a4-2b5c-4d3a-8f6e-6c4b8d7f2e9a,The Odyssey,Homer,9780140268867,38,12,English,423e4567-e89b-12d3-a456-426614174003
-
